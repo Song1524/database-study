@@ -44,7 +44,7 @@ GROUP BY category;
 SELECT *
 FROM burgers
 WHERE price = (SELECT MAX(price) FROM burgers) 
-   OR price = (SELECT MIN(price) FROM burgers);
+  OR price = (SELECT MIN(price) FROM burgers);
 -- 가격이 가장 높거나 가장 낮은 버거의 모든 정보를 가져옴
 
 -- 무게가 240g을 초과하는 버거의 개수?
