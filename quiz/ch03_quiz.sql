@@ -132,8 +132,9 @@ WHERE category = '전자기기' AND stock >= 10;
 -- 가격에 10% 세금을 적용한 최종 가격을 계산해 제품명과 함께 조회하세요.
 
 -- 정답:
-SELECT name, price * 1.1 AS final_price
+SELECT name, price * 1.1 AS `+세금`
 FROM products;
+
 
 
 -- 문제 4
@@ -149,34 +150,31 @@ WHERE NOT category = '전자기기';
 -- 재고가 10개 이하인 제품 중 가격을 20% 할인해 제품명과 가격을 조회하세요.
 
 -- 정답:
-SELECT name, price * 0.8 AS discounted_price
+SELECT name, price * 0.8 AS `할인가`
 FROM products
 WHERE stock <= 10;
 
 
 -- 문제 6
--- 카테고리가 '생활용품'이면서 가격이 100,000원 이상이거나, 재고가 50개 이상인 제품의 제품명, 카테고리, 재고를 조회하세요.
+-- 카테고리가 '생활용품'이고 가격이 100,000원 이상이거나, 재고가 50개 이상인 제품의 제품명, 카테고리, 재고를 조회하세요.
 
 -- 정답: 
 SELECT name, category, stock
 FROM products
 WHERE (category = '생활용품' AND price >= 100000) OR stock >= 50;
 
-
 -- 문제 7
 -- 카테고리가 '전자기기'인 제품 중 재고가 10개 이하 남은 제품을 30% 할인된 가격으로 판매하려고 합니다.
 -- 해당 제품의 제품명, 재고, 할인된 가격을 조회하세요.
 
 -- 정답:
-SELECT name, stock, price * 0.7 AS final_price
+SELECT name, stock, price * 0.7 AS `할인된 가격`
 FROM products
 WHERE category = '전자기기' AND stock <= 10;
-
 
 -- 문제 8
 -- 각 제품의 재고를 모두 소진했을 때 매출을 구해 제품명과 총판매액을 출력하세요.
 
 -- 정답:
-SELECT name, price * stock AS total_sales_amount
+SELECT name, stock * price AS `총 판매액`
 FROM products;
-
